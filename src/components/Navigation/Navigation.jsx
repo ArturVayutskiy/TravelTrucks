@@ -13,6 +13,7 @@ const Navigation = () => {
           className={({ isActive }) => {
             return clsx(css.link, isActive && css.isActive);
           }}
+          aria-label="Home page button"
         >
           Home
         </NavLink>
@@ -21,6 +22,7 @@ const Navigation = () => {
           className={({ isActive }) => {
             return clsx(css.link, isActive && css.isActive);
           }}
+          aria-label="Catalog button"
         >
           Catalog
         </NavLink>
