@@ -1,19 +1,59 @@
 import css from "./TruckFeatures.module.css";
-const TruckFeatures = ({ camper }) => {
-  //   if (!camper) return null;
+import sprite from "../../assets/icons/sprite.svg";
 
+const TruckFeatures = ({ camper }) => {
   return (
     <div className={css.container}>
-      <div>
-        {/* Например, перечисляем фичи кемпера */}
-        {camper.AC && <span>AC</span>}
-        {camper.kitchen && <span>{camper.kitchen}</span>}
-        {camper.TV && <span>TV</span>}
-        {<span>{camper.transmission}</span>}
-        {camper.engine && <span>petrol</span>}
-      </div>
-      <div className={css.vehiclePrice}>€{camper.price.toFixed(2)}</div>
-      <button className={css.showMoreButton}>Show More</button>
+      <ul className={css.list}>
+        {camper.transmission && (
+          <li className={css.item}>
+            <svg className={css.icons} width="20" height="20">
+              <use href={`${sprite}#icon-automatic`}></use>
+            </svg>
+            <span>Automatic</span>
+          </li>
+        )}
+        {camper.engine && (
+          <li className={css.item}>
+            <svg className={css.icons} width="20" height="20">
+              <use href={`${sprite}#icon-petrol`}></use>
+            </svg>
+            <span>Petrol</span>
+          </li>
+        )}
+        {camper.kitchen && (
+          <li className={css.item}>
+            <svg className={css.icons} width="20" height="20">
+              <use href={`${sprite}#icon-kitchen`}></use>
+            </svg>
+            <span>Kitchen</span>
+          </li>
+        )}
+        {camper.AC && (
+          <li className={css.item}>
+            <svg className={css.icons} width="20" height="20">
+              <use href={`${sprite}#icon-ac`}></use>
+            </svg>
+            <span>AC</span>
+          </li>
+        )}
+        {camper.TV && (
+          <li className={css.item}>
+            <svg className={css.icons} width="20" height="20">
+              <use href={`${sprite}#icon-tv`}></use>
+            </svg>
+            <span>TV</span>
+          </li>
+        )}
+        {camper.bathroom && (
+          <li className={css.item}>
+            <svg className={css.icons} width="20" height="20">
+              <use href={`${sprite}#icon-bathroom`}></use>
+            </svg>
+            <span>Bathroom</span>
+          </li>
+        )}
+      </ul>
     </div>
   );
 };

@@ -1,24 +1,54 @@
 import TruckFeatures from "../TruckFeatures/TruckFeatures";
+import css from "./TruckCard.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleFavorite } from "../../redux/slice/camperSlice";
+import sprite from "../../assets/icons/sprite.svg";
 
 const TruckCard = ({ camper }) => {
+  const dispatch = useDispatch();
+  const favorites = useSelector((state) => state.campers.favorites);
+  const isFavorite = favorites.includes(camper.id);
+
+  const handleToggleFavorite = () => {
+    dispatch(toggleFavorite(camper.id));
+  };
+
   return (
-    <div className="truck-card">
-      <div className="truck-card__image">
-        <img src={camper.gallery[0].thumb} alt={camper.name} />
-      </div>
-      <div className="truck-card__info">
-        <h3>{camper.name}</h3>
-        <div className="truck-card__rating">
-          ⭐ {camper.rating} ({camper.reviews.length} Reviews) |{" "}
+    <div className={css.truckContainer}>
+      <img
+        className={css.truckCardImage}
+        src={camper.gallery[0].thumb}
+        alt={camper.name}
+      />
+      <div className={css.truckCardInfo}>
+        <div className={css.cardTitle}>
+          <h3 className={css.title}>{camper.name}</h3>
+          <div className={css.namePriceFavorite}>
+            <p className={css.truckCardPrice}>€{camper.price.toFixed(2)}</p>
+            <svg
+              className={`${css.favoriteIcon} ${isFavorite ? css.active : ""}`}
+              onClick={handleToggleFavorite}
+              width="24"
+              height="21"
+            >
+              <use href={`${sprite}#icon-heart`}></use>
+            </svg>
+          </div>
+        </div>
+        <div className={css.truckCardRating}>
+          <svg width="16" height="16" style={{ fill: "#FFC531" }}>
+            <use href={`${sprite}#icon-star`}></use>
+          </svg>
+          {camper.rating} ({camper.reviews.length} Reviews){" "}
+          <svg width="16" height="16">
+            <use href={`${sprite}#icon-location`}></use>
+          </svg>{" "}
           {camper.location}
         </div>
-        <p className="truck-card__description">{camper.description}</p>
-
-        {/* Вставляем TruckFeatures для иконок характеристик */}
+        <p className={css.truckCardDescription}>{camper.description}</p>
         <TruckFeatures camper={camper} />
-
-        <div className="truck-card__footer">
-          <p className="truck-card__price">€{camper.price.toFixed(2)}</p>
+        <div className={css.truckCardFooter}>
+          <button className={css.showMoreButton}>Show More</button>
         </div>
       </div>
     </div>

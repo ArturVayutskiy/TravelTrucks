@@ -4,8 +4,14 @@ import Catalog from "./pages/Catalog/Catalog";
 import Details from "./pages/Details/Details";
 import Navigation from "./components/Navigation/Navigation.jsx";
 import Container from "./components/Container/Container.jsx";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 function App() {
+  const favorites = useSelector((state) => state.campers.favorites);
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]);
   return (
     <>
       <Container>
