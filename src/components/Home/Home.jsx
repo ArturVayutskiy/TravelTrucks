@@ -1,5 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import css from "./Home.module.css";
 const Home = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/catalog");
+  };
   return (
     <main>
       <div className={css.background}>
@@ -8,10 +14,9 @@ const Home = () => {
           <h2 className={css.secondText}>
             You can find everything you want in our catalog
           </h2>
-          <a href="/catalog" className={css.button}>
-            {" "}
+          <button type="button" className={css.button} onClick={handleClick}>
             View Now
-          </a>
+          </button>
         </div>
       </div>
     </main>
