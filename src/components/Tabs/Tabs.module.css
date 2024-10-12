@@ -1,8 +1,6 @@
 .tabsContainer {
-  border-radius: 10px;
-  padding: 44px 80px;
-  width: 631px;
-  height: 588px;
+  margin-left: 64px;
+  margin-bottom: 44px;
 }
 
 .tabHeaders {
@@ -24,4 +22,32 @@
 
 .tabContent {
   padding-top: 20px;
+}
+
+.tabButton {
+  padding: 10px 20px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #333;
+  border-bottom: 2px solid transparent;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+}
+
+.tabButton:hover {
+  color: #333;
+}
+
+.tabButton.active {
+  color: #111;
+  font-weight: bold;
+  border-bottom: 2px solid red; /* Красная линия под активной вкладкой */
+}
+
+.tabContent {
+  padding: 20px 0;
+  font-size: 14px;
 }

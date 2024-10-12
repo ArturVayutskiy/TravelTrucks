@@ -1,9 +1,14 @@
 import css from "./DetailsFeatures.module.css";
 import TruckFeatures from "../../TruckFeatures/TruckFeatures";
+import Loader from "../../Loader/Loader";
 
 const DetailsFeature = ({ camper }) => {
   if (!camper) {
-    return <div>Loading camper details...</div>;
+    return (
+      <div>
+        <Loader />
+      </div>
+    );
   }
   return (
     <div className={css.featuresTab}>
