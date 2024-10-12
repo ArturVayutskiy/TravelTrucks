@@ -5,7 +5,7 @@ import { fetchCamperById } from "../../redux/slice/camperSlice";
 import Loader from "../../components/Loader/Loader";
 import css from "./Details.module.css";
 import CamperDetails from "../../components/DetailsPageComponents/CamperDetails/CamperDetails";
-import BookForm from "../../components/DetailsPageComponents/BookForm/bookForm";
+import BookForm from "../../components/DetailsPageComponents/BookForm/BookForm";
 import Tabs from "../../components/Tabs/Tabs";
 
 const Details = () => {
