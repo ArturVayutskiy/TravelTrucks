@@ -29,6 +29,7 @@
   font-weight: 600;
   font-size: 24px;
   line-height: 133%;
+  margin-bottom: 0;
 }
 .truckCardPrice {
   font-weight: 600;
@@ -82,9 +83,13 @@
   cursor: pointer;
   font-weight: 500;
   font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   line-height: 150%;
   letter-spacing: -0.01em;
   margin-top: 24px;
+  text-decoration: none;
 }
 
 .showMoreButton:hover {

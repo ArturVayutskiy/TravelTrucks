@@ -4,10 +4,11 @@ import { fetchCampers } from "../../redux/slice/camperSlice";
 import Filters from "../../components/Filters/Filters";
 import CatalogList from "../../components/CatalogList/CatalogList";
 import css from "./Catalog.module.css";
+import Loader from "../../components/Loader/Loader";
 
 const Catalog = () => {
   const dispatch = useDispatch();
-  const { campers, status, error } = useSelector((state) => state.campers);
+  const { campers, status } = useSelector((state) => state.campers);
   const [visibleCampers, setVisibleCampers] = useState(4);
 
   useEffect(() => {
@@ -19,11 +20,19 @@ const Catalog = () => {
   };
 
   if (status === "loading") {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <Loader />
+      </div>
+    );
   }
 
   if (status === "failed") {
-    return <div>Error: {error}</div>;
+    return (
+      <div>
+        <p>Something went wrong! Please reload the page.</p>
+      </div>
+    );
   }
 
   return (

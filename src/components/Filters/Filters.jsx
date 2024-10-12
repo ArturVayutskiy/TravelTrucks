@@ -36,13 +36,18 @@ const Filters = () => {
           <svg className={css.icon} width="20" height="20">
             <use href={`${sprite}#icon-location`}></use>
           </svg>
-          <input
+          <select
             className={css.locationInput}
-            type="text"
-            placeholder="City"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
-          />
+          >
+            <option value="">City</option>
+            <option value="Kyiv">Kyiv</option>
+            <option value="Poltava">Poltava</option>
+            <option value="Odesa">Odesa</option>
+            <option value="Sumy">Sumy</option>
+            <option value="Lviv">Lviv</option>
+          </select>
         </div>
       </div>
 

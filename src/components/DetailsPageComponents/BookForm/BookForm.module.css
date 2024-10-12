@@ -1,0 +1,79 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding: 44px;
+  width: 641px;
+  height: 588px;
+  position: ;
+}
+
+.bookingForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 340px;
+  gap: 14px;
+}
+
+.formField {
+  border: none;
+  border-radius: 12px;
+  padding: 18px 337px 18px 18px;
+  max-width: max-content;
+  height: 60px;
+  background-color: #f7f7f7;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  resize: none;
+  color: #101828;
+}
+
+.formFieldDate {
+  border: none;
+  border-radius: 12px;
+  padding: 18px 337px 18px 18px;
+  max-width: max-content;
+  height: 60px;
+  width: 568px;
+  background-color: #f7f7f7;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  resize: none;
+  color: #101828;
+}
+
+.formField textarea {
+  width: 300px;
+}
+
+.sendBtn {
+  display: flex;
+  border: none;
+  background-color: #e44848;
+  color: #fff;
+  border-radius: 200px;
+  width: 166px;
+  height: 56px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  margin-top: 24px;
+  text-decoration: none;
+}
+
+.sendBtn:hover {
+  background-color: #d43e3e;
+}

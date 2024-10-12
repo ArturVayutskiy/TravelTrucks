@@ -1,20 +1,28 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import axios from "../../api/axios.js";
 
 export const fetchCampers = createAsyncThunk(
   "campers/fetchCampers",
-  async (filters) => {
+  async (filters, thunkAPI) => {
     try {
-      const response = await axios.get(
-        "https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers",
-        {
-          params: filters,
-        }
-      );
+      const response = await axios.get("/campers", {
+        params: filters,
+      });
       return response.data.items;
     } catch (error) {
-      error;
-      throw error;
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const fetchCamperById = createAsyncThunk(
+  "campers/fetchCamperById",
+  async (id, thunkAPI) => {
+    try {
+      const response = await axios.get(`/campers/${id}`);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
@@ -25,7 +33,9 @@ const camperSlice = createSlice({
   name: "campers",
   initialState: {
     campers: [],
+    selectedCamper: null,
     status: "idle",
+    camperStatus: "idle",
     error: null,
     favorites: savedFavorites,
   },
@@ -37,9 +47,7 @@ const camperSlice = createSlice({
       } else {
         state.favorites.push(camperId);
       }
-    },
-    setFavorites: (state, action) => {
-      state.favorites = action.payload;
+      localStorage.setItem("favorites", JSON.stringify(state.favorites));
     },
   },
   extraReducers: (builder) => {
@@ -53,7 +61,20 @@ const camperSlice = createSlice({
       })
       .addCase(fetchCampers.rejected, (state, action) => {
         state.status = "failed";
-        state.error = action.error.message;
+        state.error = action.payload || action.error.message;
+      });
+
+    builder
+      .addCase(fetchCamperById.pending, (state) => {
+        state.camperStatus = "loading";
+      })
+      .addCase(fetchCamperById.fulfilled, (state, action) => {
+        state.camperStatus = "succeeded";
+        state.selectedCamper = action.payload;
+      })
+      .addCase(fetchCamperById.rejected, (state, action) => {
+        state.camperStatus = "failed";
+        state.error = action.payload || action.error.message;
       });
   },
 });

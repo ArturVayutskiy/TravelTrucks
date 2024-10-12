@@ -1,0 +1,27 @@
+.tabsContainer {
+  border-radius: 10px;
+  padding: 44px 80px;
+  width: 631px;
+  height: 588px;
+}
+
+.tabHeaders {
+  display: flex;
+  gap: 20px;
+}
+
+.tabHeaders button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: black;
+}
+
+.tabHeaders .active {
+  border-bottom: 2px solid red;
+}
+
+.tabContent {
+  padding-top: 20px;
+}

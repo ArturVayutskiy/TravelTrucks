@@ -3,6 +3,7 @@ import css from "./TruckCard.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleFavorite } from "../../redux/slice/camperSlice";
 import sprite from "../../assets/icons/sprite.svg";
+import { Link } from "react-router-dom";
 
 const TruckCard = ({ camper }) => {
   const dispatch = useDispatch();
@@ -39,16 +40,18 @@ const TruckCard = ({ camper }) => {
           <svg width="16" height="16" style={{ fill: "#FFC531" }}>
             <use href={`${sprite}#icon-star`}></use>
           </svg>
-          {camper.rating} ({camper.reviews.length} Reviews){" "}
+          {camper.rating} ({camper.reviews.length} Reviews)
           <svg width="16" height="16">
             <use href={`${sprite}#icon-location`}></use>
-          </svg>{" "}
+          </svg>
           {camper.location}
         </div>
         <p className={css.truckCardDescription}>{camper.description}</p>
         <TruckFeatures camper={camper} />
         <div className={css.truckCardFooter}>
-          <button className={css.showMoreButton}>Show More</button>
+          <Link to={`/catalog/${camper.id}`} className={css.showMoreButton}>
+            Show More
+          </Link>
         </div>
       </div>
     </div>
