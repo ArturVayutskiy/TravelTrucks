@@ -18,7 +18,7 @@ const DetailsFeature = ({ camper }) => {
         <h3 className={css.featuresTitle}>Vehicle details</h3>
         <ul className={css.featuresList}>
           <li className={css.featuresItem}>
-            <span>Form</span>{" "}
+            <span>Form</span>
             {camper.form.charAt(0).toUpperCase() + camper.form.slice(1)}
           </li>
           <li className={css.featuresItem}>

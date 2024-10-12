@@ -2,9 +2,12 @@
   width: 360px;
   margin-left: 64px;
 }
-
+select {
+  -webkit-appearance: none;
+}
 .locationTitle {
   color: #6c717b;
+  margin-bottom: 8px;
 }
 
 .filtersTitle {
@@ -47,8 +50,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  width: 360px;
-  height: 56px;
+  margin-bottom: 40px;
 }
 
 .locationInput {
@@ -56,7 +58,8 @@
   outline: none;
   border-radius: 12px;
   padding: 18px 125px 18px 40px;
-
+  width: 360px;
+  height: 56px;
   background-color: #f7f7f7;
   color: black;
   font-weight: 400;

@@ -1,4 +1,11 @@
 .catalogList {
   display: flex;
   flex-direction: column;
+  margin-top: 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .catalogList {
+    flex-direction: column;
+  }
 }

@@ -6,3 +6,40 @@
   width: 631px;
   height: 588px;
 }
+
+.reviewerInfo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  background-color: #e6eefa;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+.avatarIcon {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ff6b6b;
+}
+
+.ratingAndName {
+  display: flex;
+  flex-direction: column;
+}
+
+.reviewItem {
+  margin-bottom: 44px;
+}
+
+.reviewRating {
+  display: flex;
+  align-items: center;
+}

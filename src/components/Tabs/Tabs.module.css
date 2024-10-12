@@ -44,7 +44,7 @@
 .tabButton.active {
   color: #111;
   font-weight: bold;
-  border-bottom: 2px solid red; /* Красная линия под активной вкладкой */
+  border-bottom: 2px solid red;
 }
 
 .tabContent {

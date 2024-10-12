@@ -41,12 +41,12 @@ const Filters = () => {
             value={location}
             onChange={(e) => setLocation(e.target.value)}
           >
-            <option value="">City</option>
-            <option value="Kyiv">Kyiv</option>
-            <option value="Poltava">Poltava</option>
-            <option value="Odesa">Odesa</option>
-            <option value="Sumy">Sumy</option>
-            <option value="Lviv">Lviv</option>
+            <option value="">City, Ukraine</option>
+            <option value="Kyiv">Kyiv, Ukraine</option>
+            <option value="Poltava">Poltava, Ukraine</option>
+            <option value="Odesa">Odesa, Ukraine</option>
+            <option value="Sumy">Sumy, Ukraine</option>
+            <option value="Lviv">Lviv, Ukraine</option>
           </select>
         </div>
       </div>
@@ -81,7 +81,6 @@ const Filters = () => {
               className={`${css.filterButton} ${kitchen ? css.active : ""}`}
               onClick={() => setKitchen(!kitchen)}
             >
-              {" "}
               <svg className={css.icons} width="32" height="32">
                 <use href={`${sprite}#icon-kitchen`}></use>
               </svg>
@@ -102,7 +101,6 @@ const Filters = () => {
               className={`${css.filterButton} ${bathroom ? css.active : ""}`}
               onClick={() => setBathroom(!bathroom)}
             >
-              {" "}
               <svg className={css.icons} width="32" height="32">
                 <use href={`${sprite}#icon-bathroom`}></use>
               </svg>
@@ -118,7 +116,9 @@ const Filters = () => {
               className={`${css.filterButton} ${
                 vehicleType === "panelTruck" ? css.active : ""
               }`}
-              onClick={() => setVehicleType("panelTruck")}
+              onClick={() =>
+                setVehicleType(vehicleType === "panelTruck" ? "" : "panelTruck")
+              }
             >
               <svg className={css.icons} width="32" height="32">
                 <use href={`${sprite}#icon-van`}></use>
@@ -130,7 +130,11 @@ const Filters = () => {
               className={`${css.filterButton} ${
                 vehicleType === "fullyIntegrated" ? css.active : ""
               }`}
-              onClick={() => setVehicleType("fullyIntegrated")}
+              onClick={() =>
+                setVehicleType(
+                  vehicleType === "fullyIntegrated" ? "" : "fullyIntegrated"
+                )
+              }
             >
               <svg className={css.icons} width="32" height="32">
                 <use href={`${sprite}#icon-fully`}></use>
@@ -142,7 +146,9 @@ const Filters = () => {
               className={`${css.filterButton} ${
                 vehicleType === "alcove" ? css.active : ""
               }`}
-              onClick={() => setVehicleType("alcove")}
+              onClick={() =>
+                setVehicleType(vehicleType === "alcove" ? "" : "alcove")
+              }
             >
               <svg className={css.icons} width="32" height="32">
                 <use href={`${sprite}#icon-alcove`}></use>
