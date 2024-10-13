@@ -1,11 +1,13 @@
 import { Field, Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import css from "./BookForm.module.css";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css"; // Стандартные стили библиотеки
+import css from "./BookForm.module.css"; // Ваши кастомные стили
 
 const initialValues = {
   username: "",
   email: "",
-  bookingDate: "",
+  bookingDate: null, // Меняем на null, так как будет использоваться объект Date
   comment: "",
 };
 
@@ -14,8 +16,7 @@ const validationSchema = Yup.object({
   email: Yup.string()
     .email("Invalid email address")
     .required("Email is required"),
-  bookingDate: Yup.string().required("Booking date is required"),
-  comment: Yup.string().required("Comment is required"),
+  bookingDate: Yup.date().nullable().required("Booking date is required"),
 });
 
 const BookForm = () => {
@@ -35,7 +36,7 @@ const BookForm = () => {
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        {({ values, handleChange }) => (
+        {({ values, setFieldValue, handleChange, isSubmitting }) => (
           <Form className={css.bookingForm}>
             <div className={css.formGroup}>
               <Field
@@ -45,6 +46,8 @@ const BookForm = () => {
                 placeholder="Name*"
                 value={values.username}
                 onChange={handleChange}
+                aria-label="Enter your name"
+                required
               />
               <ErrorMessage
                 name="username"
@@ -61,6 +64,8 @@ const BookForm = () => {
                 placeholder="Email*"
                 value={values.email}
                 onChange={handleChange}
+                aria-label="Enter your email"
+                required
               />
               <ErrorMessage
                 name="email"
@@ -70,14 +75,13 @@ const BookForm = () => {
             </div>
 
             <div className={css.formGroup}>
-              <Field
+              <DatePicker
+                selected={values.bookingDate}
+                onChange={(date) => setFieldValue("bookingDate", date)}
+                dateFormat="MM/dd/yyyy"
                 className={css.formFieldDate}
-                type="date"
-                name="bookingDate"
-                placeholder="Booking date*"
-                value={values.bookingDate}
-                onChange={handleChange}
-                onClick={(e) => e.target.showPicker()}
+                placeholderText="Booking date*"
+                aria-label="Select booking date"
               />
               <ErrorMessage
                 name="bookingDate"
@@ -86,23 +90,22 @@ const BookForm = () => {
               />
             </div>
 
-            <div className={css.formGroup}>
-              <Field
-                className={css.formField}
-                as="textarea"
-                name="comment"
-                placeholder="Comment"
-                value={values.comment}
-                onChange={handleChange}
-              />
-              <ErrorMessage
-                name="comment"
-                component="div"
-                className={css.errorMessage}
-              />
-            </div>
+            <Field
+              className={css.formField}
+              as="textarea"
+              name="comment"
+              placeholder="Comment"
+              value={values.comment}
+              onChange={handleChange}
+              aria-label="Leave a comment"
+            />
+
             <div className={css.Btn}>
-              <button type="submit" className={css.sendBtn}>
+              <button
+                type="submit"
+                className={css.sendBtn}
+                disabled={isSubmitting}
+              >
                 Send
               </button>
             </div>

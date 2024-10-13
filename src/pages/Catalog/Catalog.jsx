@@ -30,7 +30,7 @@ const Catalog = () => {
   if (status === "failed") {
     return (
       <div>
-        <p>Something went wrong! Please reload the page.</p>
+        <p>Something went wrong! Please try again later or reload the page.</p>
       </div>
     );
   }
@@ -42,7 +42,11 @@ const Catalog = () => {
         <div className={css.cardContainer}>
           <CatalogList campers={campers.slice(0, visibleCampers)} />
           {visibleCampers < campers.length && (
-            <button onClick={loadMore} className={css.loadMoreBtn}>
+            <button
+              onClick={loadMore}
+              className={css.loadMoreBtn}
+              aria-label="Load more camper listings"
+            >
               Load More
             </button>
           )}

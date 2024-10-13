@@ -33,11 +33,17 @@ const Filters = () => {
       <div className={css.location}>
         <h4 className={css.locationTitle}>Location</h4>
         <div className={css.wrapperIconInput}>
-          <svg className={css.icon} width="20" height="20">
+          <svg
+            className={css.icon}
+            width="20"
+            height="20"
+            aria-label="Location icon"
+          >
             <use href={`${sprite}#icon-location`}></use>
           </svg>
           <select
             className={css.locationInput}
+            aria-label="Select location"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
           >
@@ -60,6 +66,8 @@ const Filters = () => {
             <button
               className={`${css.filterButton} ${ac ? css.active : ""}`}
               onClick={() => setAc(!ac)}
+              aria-pressed={ac}
+              aria-label="Filter by AC"
             >
               <svg className={css.icons} width="32" height="32">
                 <use href={`${sprite}#icon-ac`}></use>
@@ -70,6 +78,8 @@ const Filters = () => {
             <button
               className={`${css.filterButton} ${automatic ? css.active : ""}`}
               onClick={() => setAutomatic(!automatic)}
+              aria-pressed={automatic}
+              aria-label="Filter by automatic transmission"
             >
               <svg className={css.icons} width="32" height="32">
                 <use href={`${sprite}#icon-automatic`}></use>
@@ -80,6 +90,8 @@ const Filters = () => {
             <button
               className={`${css.filterButton} ${kitchen ? css.active : ""}`}
               onClick={() => setKitchen(!kitchen)}
+              aria-pressed={kitchen}
+              aria-label="Filter by kitchen"
             >
               <svg className={css.icons} width="32" height="32">
                 <use href={`${sprite}#icon-kitchen`}></use>
@@ -90,6 +102,8 @@ const Filters = () => {
             <button
               className={`${css.filterButton} ${tv ? css.active : ""}`}
               onClick={() => setTv(!tv)}
+              aria-pressed={tv}
+              aria-label="Filter by TV"
             >
               <svg className={css.icons} width="32" height="32">
                 <use href={`${sprite}#icon-tv`}></use>
@@ -100,6 +114,8 @@ const Filters = () => {
             <button
               className={`${css.filterButton} ${bathroom ? css.active : ""}`}
               onClick={() => setBathroom(!bathroom)}
+              aria-pressed={bathroom}
+              aria-label="Filter by bathroom"
             >
               <svg className={css.icons} width="32" height="32">
                 <use href={`${sprite}#icon-bathroom`}></use>
@@ -119,6 +135,8 @@ const Filters = () => {
               onClick={() =>
                 setVehicleType(vehicleType === "panelTruck" ? "" : "panelTruck")
               }
+              aria-pressed={vehicleType === "panelTruck"}
+              aria-label="Filter by van type"
             >
               <svg className={css.icons} width="32" height="32">
                 <use href={`${sprite}#icon-van`}></use>
@@ -135,6 +153,8 @@ const Filters = () => {
                   vehicleType === "fullyIntegrated" ? "" : "fullyIntegrated"
                 )
               }
+              aria-pressed={vehicleType === "fullyIntegrated"}
+              aria-label="Filter by fully integrated type"
             >
               <svg className={css.icons} width="32" height="32">
                 <use href={`${sprite}#icon-fully`}></use>
@@ -149,6 +169,8 @@ const Filters = () => {
               onClick={() =>
                 setVehicleType(vehicleType === "alcove" ? "" : "alcove")
               }
+              aria-pressed={vehicleType === "alcove"}
+              aria-label="Filter by alcove type"
             >
               <svg className={css.icons} width="32" height="32">
                 <use href={`${sprite}#icon-alcove`}></use>
@@ -158,7 +180,11 @@ const Filters = () => {
           </div>
         </div>
 
-        <button className={css.searchButton} onClick={applyFilters}>
+        <button
+          className={css.searchButton}
+          onClick={applyFilters}
+          aria-label="Apply filters"
+        >
           Search
         </button>
       </div>

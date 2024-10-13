@@ -2,10 +2,10 @@ import { useState } from "react";
 import css from "./Tabs.module.css";
 
 const Tabs = ({ setActiveTab }) => {
-  const [activeTab, setTab] = useState("features");
+  const [currentTab, setCurrentTab] = useState("features");
 
   const handleTabClick = (tab) => {
-    setTab(tab);
+    setCurrentTab(tab);
     setActiveTab(tab);
   };
 
@@ -13,7 +13,7 @@ const Tabs = ({ setActiveTab }) => {
     <div className={css.tabsContainer}>
       <button
         className={`${css.tabButton} ${
-          activeTab === "features" ? css.active : ""
+          currentTab === "features" ? css.active : ""
         }`}
         onClick={() => handleTabClick("features")}
       >
@@ -21,7 +21,7 @@ const Tabs = ({ setActiveTab }) => {
       </button>
       <button
         className={`${css.tabButton} ${
-          activeTab === "reviews" ? css.active : ""
+          currentTab === "reviews" ? css.active : ""
         }`}
         onClick={() => handleTabClick("reviews")}
       >

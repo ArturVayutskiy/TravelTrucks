@@ -12,29 +12,33 @@ const DetailsFeature = ({ camper }) => {
   }
   return (
     <div className={css.featuresTab}>
+      {/* Features of the truck */}
       <TruckFeatures camper={camper} />
 
       <div className={css.featuresDetails}>
-        <h3 className={css.featuresTitle}>Vehicle details</h3>
+        <h3 className={css.featuresTitle} aria-label="Vehicle details">
+          Vehicle details
+        </h3>
         <ul className={css.featuresList}>
           <li className={css.featuresItem}>
-            <span>Form</span>
+            <span aria-label="Vehicle form">Form</span>
             {camper.form.charAt(0).toUpperCase() + camper.form.slice(1)}
           </li>
           <li className={css.featuresItem}>
-            <span>Length</span> {camper.length}
+            <span aria-label="Vehicle length">Length</span> {camper.length}
           </li>
           <li className={css.featuresItem}>
-            <span>Width</span> {camper.width}
+            <span aria-label="Vehicle width">Width</span> {camper.width}
           </li>
           <li className={css.featuresItem}>
-            <span>Height</span> {camper.height}
+            <span aria-label="Vehicle height">Height</span> {camper.height}
           </li>
           <li className={css.featuresItem}>
-            <span>Tank</span> {camper.tank}
+            <span aria-label="Vehicle tank capacity">Tank</span> {camper.tank}
           </li>
           <li className={css.featuresItem}>
-            <span>Consumption</span> {camper.consumption}
+            <span aria-label="Vehicle fuel consumption">Consumption</span>{" "}
+            {camper.consumption}
           </li>
         </ul>
       </div>

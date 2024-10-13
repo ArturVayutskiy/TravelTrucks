@@ -3,7 +3,7 @@ import css from "./Logo.module.css";
 
 const Logo = () => {
   return (
-    <div className="css.wrapper">
+    <div className={css.wrapper}>
       <Link
         to="/"
         aria-label="Go to home page"

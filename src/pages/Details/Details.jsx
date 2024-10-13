@@ -9,10 +9,10 @@ import BookForm from "../../components/DetailsPageComponents/BookForm/BookForm";
 import Tabs from "../../components/Tabs/Tabs";
 import DetailsFeature from "../../components/DetailsPageComponents/DetailsFeatures/DetailsFeatures";
 import DetailsReviews from "../../components/DetailsPageComponents/DetailsReviews/DetailsReviews";
+
 const Details = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-
   const [activeTab, setActiveTab] = useState("features");
 
   const {
@@ -25,29 +25,27 @@ const Details = () => {
     dispatch(fetchCamperById(id));
   }, [dispatch, id]);
 
-  if (status === "loading") {
-    return <Loader />;
-  }
+  const renderContent = () => {
+    if (status === "loading") return <Loader />;
+    if (status === "failed") return <div>Error: {error}</div>;
+    if (!camper) return <p>Camper not found!</p>;
 
-  if (status === "failed") {
-    return <div>Error: {error}</div>;
-  }
-
-  if (!camper) {
-    return <p>Camper is not found!</p>;
-  }
-
-  return (
-    <div className={css.detailsContainer}>
-      <CamperDetails camper={camper} />
-      <Tabs setActiveTab={setActiveTab} />
-      <div className={css.tabContent}>
-        {activeTab === "features" && <DetailsFeature camper={camper} />}
-        {activeTab === "reviews" && <DetailsReviews reviews={camper.reviews} />}
-        <BookForm />
+    return (
+      <div className={css.detailsContainer}>
+        <CamperDetails camper={camper} />
+        <Tabs setActiveTab={setActiveTab} />
+        <div className={css.tabContent}>
+          {activeTab === "features" && <DetailsFeature camper={camper} />}
+          {activeTab === "reviews" && (
+            <DetailsReviews reviews={camper.reviews} />
+          )}
+          <BookForm />
+        </div>
       </div>
-    </div>
-  );
+    );
+  };
+
+  return <>{renderContent()}</>;
 };
 
 export default Details;
