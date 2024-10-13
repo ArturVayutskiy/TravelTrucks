@@ -21,7 +21,6 @@ const validationSchema = Yup.object({
 
 const BookForm = () => {
   const handleSubmit = (values, actions) => {
-    console.log("Form data: ", values);
     actions.resetForm();
   };
 
