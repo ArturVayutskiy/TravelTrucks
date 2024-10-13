@@ -1,13 +1,14 @@
 import { Field, Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css"; // Стандартные стили библиотеки
-import css from "./BookForm.module.css"; // Ваши кастомные стили
+import "react-datepicker/dist/react-datepicker.css";
+import "./DataPicker.css";
+import css from "./BookForm.module.css";
 
 const initialValues = {
   username: "",
   email: "",
-  bookingDate: null, // Меняем на null, так как будет использоваться объект Date
+  bookingDate: null,
   comment: "",
 };
 
@@ -20,7 +21,7 @@ const validationSchema = Yup.object({
 });
 
 const BookForm = () => {
-  const handleSubmit = (values, actions) => {
+  const handleSubmit = (actions) => {
     actions.resetForm();
   };
 
@@ -79,8 +80,10 @@ const BookForm = () => {
                 onChange={(date) => setFieldValue("bookingDate", date)}
                 dateFormat="MM/dd/yyyy"
                 className={css.formFieldDate}
+                calendarClassName="data-picker"
                 placeholderText="Booking date*"
                 aria-label="Select booking date"
+                maxDate={new Date()}
               />
               <ErrorMessage
                 name="bookingDate"

@@ -12,7 +12,6 @@ const DetailsFeature = ({ camper }) => {
   }
   return (
     <div className={css.featuresTab}>
-      {/* Features of the truck */}
       <TruckFeatures camper={camper} />
 
       <div className={css.featuresDetails}>
@@ -37,7 +36,7 @@ const DetailsFeature = ({ camper }) => {
             <span aria-label="Vehicle tank capacity">Tank</span> {camper.tank}
           </li>
           <li className={css.featuresItem}>
-            <span aria-label="Vehicle fuel consumption">Consumption</span>{" "}
+            <span aria-label="Vehicle fuel consumption">Consumption</span>
             {camper.consumption}
           </li>
         </ul>

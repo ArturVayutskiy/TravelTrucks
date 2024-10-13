@@ -25,7 +25,7 @@ const CamperDetails = ({ camper }) => {
         </div>
       </div>
 
-      <h2 className={css.camperPrice}>€{camper.price.toFixed(2)}</h2>
+      <h2 className={css.camperPrice}>€{Math.round(camper.price)}</h2>
 
       <div className={css.gallery}>
         {camper.gallery.map((image, index) => (

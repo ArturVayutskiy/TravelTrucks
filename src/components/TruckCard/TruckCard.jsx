@@ -60,13 +60,13 @@ const TruckCard = ({ camper }) => {
         <div className={css.cardTitle}>
           <h3 className={css.title}>{camper.name}</h3>
           <div className={css.namePriceFavorite}>
-            <p className={css.truckCardPrice}>€{camper.price.toFixed(2)}</p>
+            <p className={css.truckCardPrice}>€{Math.round(camper.price)}</p>
             <svg
               className={`${css.favoriteIcon} ${isFavorite ? css.active : ""}`}
               onClick={handleToggleFavorite}
               role="button"
               aria-label="Add to favorite"
-              tabindex="0"
+              tabIndex="0"
               width="24"
               height="21"
             >
