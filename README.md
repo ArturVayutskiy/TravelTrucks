@@ -24,7 +24,7 @@ Netlify/Vercel: Deployed on Netlify with proper routing setup using \_redirects.
   <img src="/src/assets/images/Picture.png" alt="HomePage" />
 </p>
 
-<p align="center">TrackerPage</p>
+<p align="center">Catalog Page</p>
 <p align="center">
   <img src="/src/assets/images/CatalogPage.png" alt="CatalogPage" />
 </p>
