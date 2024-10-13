@@ -10,19 +10,6 @@
   height: 72px;
 }
 
-@media only screen and (min-width: 320px) {
-  .container {
-    margin-left: 0px;
-    gap: 60px;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .container {
-    gap: 450px;
-  }
-}
-
 .nav {
   display: flex;
   justify-content: center;
