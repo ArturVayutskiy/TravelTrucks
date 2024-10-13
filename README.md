@@ -15,8 +15,9 @@ Dynamic Routing: Navigate between different pages such as home, catalog, and cam
 React & Vite: Fast and modern front-end framework and build tool.
 Redux: Efficient state management to handle favorites, bookings, and filters.
 Formik & Yup: For managing form validation and submission.
-Netlify/Vercel: Deployed on Netlify with proper routing setup using \_redirects.
-Preview of Pages:
+Netlify/Vercel: Deployed on Netlify with proper routing setup using \_redirects.<br/>
+
+<h3 align="center">Preview of Pages:</h3>
 
 <p align="center">HomePage</p>
 <p align="center">
