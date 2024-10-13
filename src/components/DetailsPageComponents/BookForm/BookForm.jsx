@@ -4,6 +4,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./DataPicker.css";
 import css from "./BookForm.module.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const initialValues = {
   username: "",
@@ -21,7 +23,8 @@ const validationSchema = Yup.object({
 });
 
 const BookForm = () => {
-  const handleSubmit = (actions) => {
+  const handleSubmit = (values, actions) => {
+    toast.success("The form has been successfully submitted!");
     actions.resetForm();
   };
 
@@ -114,6 +117,7 @@ const BookForm = () => {
           </Form>
         )}
       </Formik>
+      <ToastContainer />
     </div>
   );
 };
