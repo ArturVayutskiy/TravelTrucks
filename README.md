@@ -18,25 +18,25 @@ Formik & Yup: For managing form validation and submission.
 Netlify/Vercel: Deployed on Netlify with proper routing setup using \_redirects.
 Preview of Pages:
 
+<p align="center">HomePage</p>
 <p align="center">
   <img src="/src/assets/images/Picture.png" alt="HomePage" />
 </p>
-<p align="center">*HomePage*</p>
 
+<p align="center">TrackerPage</p>
 <p align="center">
   <img src="/src/assets/images/CatalogPage.png" alt="CatalogPage" />
 </p>
-<p align="center">*TrackerPage*</p>
 
+<p align="center">Details Page: Features</p>
 <p align="center">
   <img src="/src/assets/images/CamperDetails.png" alt="DetailsPageFeatures" />
 </p>
-<p align="center">*Details Page: Features*</p>
 
+<p align="center">Details Page: Reviews</p>
 <p align="center">
   <img src="/src/assets/images/CamperDetailsReviews.png" alt="DetailsPageReviews" />
 </p>
-<p align="center">*Details Page: Reviews*</p>
 
 ### 🚀 Get Started:
 
